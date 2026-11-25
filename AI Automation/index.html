@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maaz Coder - AI Business Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <h2>🤖 Maaz AI</h2>
+
+        <p class="side-title">MAIN MENU</p>
+
+        <a href="#" class="active" onclick="showSection('dashboard')">🏠 Dashboard</a>
+
+        <a href="#" onclick="showSection('chat')">💬 AI Assistant</a>
+
+        <a href="#" onclick="showSection('content')">✍️ Content Generator</a>
+
+        <a href="#" onclick="showSection('support')">🎧 Customer Support</a>
+
+        <a href="#" onclick="showSection('ideas')">💡 Business Ideas</a>
+
+        <a href="#" onclick="showSection('email')">📧 Email Generator</a>
+
+        <a href="#" onclick="showSection('tasks')">📋 Task Manager</a>
+
+        <div class="sidebar-bottom">
+            <h3>Maaz Coder</h3>
+            <p>AI Business Assistant</p>
+        </div>
+
+    </div>
+
+
+    <div class="main">
+
+        <header>
+
+            <div>
+                <h2>AI Business Assistant</h2>
+                <p>Manage your business with AI automation.</p>
+            </div>
+
+            <div class="profile">
+                <span>🟢</span>
+                <strong>Admin</strong>
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+
+        <section id="dashboard" class="section">
+
+            <div class="welcome">
+
+                <h1>Welcome to Maaz AI Assistant 👋</h1>
+
+                <p>
+                    Your smart business assistant is ready to help you.
+                </p>
+
+                <button onclick="showSection('chat')">
+                    Start AI Assistant →
+                </button>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div class="card">
+                    <h3>Total Tasks</h3>
+                    <h1 id="taskCount">0</h1>
+                    <p>Saved business tasks</p>
+                </div>
+
+                <div class="card">
+                    <h3>Generated Content</h3>
+                    <h1 id="contentCount">0</h1>
+                    <p>Created content</p>
+                </div>
+
+                <div class="card">
+                    <h3>AI Activities</h3>
+                    <h1 id="activityCount">0</h1>
+                    <p>Assistant interactions</p>
+                </div>
+
+            </div>
+
+
+            <h2 class="heading">Quick Actions</h2>
+
+            <div class="quick-actions">
+
+                <div onclick="showSection('chat')">
+                    💬
+                    <h3>Ask AI</h3>
+                    <p>Ask business questions.</p>
+                </div>
+
+                <div onclick="showSection('content')">
+                    ✍️
+                    <h3>Create Content</h3>
+                    <p>Generate marketing content.</p>
+                </div>
+
+                <div onclick="showSection('support')">
+                    🎧
+                    <h3>Customer Support</h3>
+                    <p>Generate customer replies.</p>
+                </div>
+
+                <div onclick="showSection('ideas')">
+                    💡
+                    <h3>Business Ideas</h3>
+                    <p>Discover new ideas.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- AI CHAT -->
+
+        <section id="chat" class="section hidden">
+
+            <h1>AI Business Assistant 💬</h1>
+
+            <p>Ask anything related to your business.</p>
+
+            <div class="chat-box">
+
+                <div id="chatMessages" class="messages">
+
+                    <div class="bot-message">
+                        Hello! Welcome to Maaz AI.
+                        How can I help your business today?
+                    </div>
+
+                </div>
+
+                <div class="chat-input">
+
+                    <input type="text" id="chatInput"
+                    placeholder="Ask your business question...">
+
+                    <button onclick="sendMessage()">Send</button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTENT GENERATOR -->
+
+        <section id="content" class="section hidden">
+
+            <h1>AI Content Generator ✍️</h1>
+
+            <p>Create marketing content for your business.</p>
+
+            <div class="generator">
+
+                <label>Enter Business Name</label>
+
+                <input type="text" id="businessName"
+                placeholder="Example: Maaz Coder Electronics">
+
+                <label>Select Content Type</label>
+
+                <select id="contentType">
+
+                    <option value="social">Social Media Post</option>
+
+                    <option value="product">Product Description</option>
+
+                    <option value="advertisement">Advertisement</option>
+
+                </select>
+
+                <label>Enter Product or Topic</label>
+
+                <input type="text" id="contentTopic"
+                placeholder="Example: Wireless Headphones">
+
+                <button onclick="generateContent()">
+                    Generate Content ✨
+                </button>
+
+                <div id="contentResult" class="result">
+                    Your generated content will appear here.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CUSTOMER SUPPORT -->
+
+        <section id="support" class="section hidden">
+
+            <h1>Customer Support 🎧</h1>
+
+            <p>Generate professional replies to customer queries.</p>
+
+            <div class="generator">
+
+                <label>Customer Name</label>
+
+                <input type="text" id="customerName"
+                placeholder="Enter customer name">
+
+                <label>Customer Question</label>
+
+                <textarea id="customerQuestion"
+                placeholder="Enter customer question..."></textarea>
+
+                <button onclick="generateSupport()">
+                    Generate Reply
+                </button>
+
+                <div id="supportResult" class="result">
+                    Customer reply will appear here.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- BUSINESS IDEAS -->
+
+        <section id="ideas" class="section hidden">
+
+            <h1>Business Ideas 💡</h1>
+
+            <p>Discover business ideas for your next project.</p>
+
+            <div class="generator">
+
+                <label>Select Business Category</label>
+
+                <select id="ideaCategory">
+
+                    <option value="Technology">Technology</option>
+
+                    <option value="E-commerce">E-commerce</option>
+
+                    <option value="Education">Education</option>
+
+                    <option value="Digital Marketing">Digital Marketing</option>
+
+                </select>
+
+                <button onclick="generateIdeas()">
+                    Generate Ideas ✨
+                </button>
+
+                <div id="ideasResult" class="result">
+                    Your business ideas will appear here.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EMAIL GENERATOR -->
+
+        <section id="email" class="section hidden">
+
+            <h1>Business Email Generator 📧</h1>
+
+            <p>Create professional business emails.</p>
+
+            <div class="generator">
+
+                <label>Recipient Name</label>
+
+                <input type="text" id="recipient"
+                placeholder="Enter recipient name">
+
+                <label>Email Purpose</label>
+
+                <input type="text" id="emailPurpose"
+                placeholder="Example: Product inquiry">
+
+                <button onclick="generateEmail()">
+                    Generate Email
+                </button>
+
+                <div id="emailResult" class="result">
+                    Your email will appear here.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TASK MANAGER -->
+
+        <section id="tasks" class="section hidden">
+
+            <h1>Business Task Manager 📋</h1>
+
+            <p>Manage your daily business activities.</p>
+
+            <div class="task-input">
+
+                <input type="text" id="taskInput"
+                placeholder="Enter your business task">
+
+                <button onclick="addTask()">Add Task +</button>
+
+            </div>
+
+            <div id="taskList"></div>
+
+        </section>
+
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
